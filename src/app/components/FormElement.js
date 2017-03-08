@@ -1,7 +1,6 @@
 import React from "react";
 
 export const FormElement = (props) => {
-     console.log(props);
     return (
        <input type={props.type} value= {props.value} name={props.name}
         onChange = {props.onChange} className={props.class} />
