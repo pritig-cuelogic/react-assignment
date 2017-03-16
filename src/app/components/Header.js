@@ -11,6 +11,7 @@ export const Header = (props) => {
                         <li><Link to={"login"} activeClassName={"active"}>Login</Link></li>
                         <li><Link to={"register"} activeClassName={"active"}>Register</Link></li>
                     </ul>
+                    <div>{props.username}</div>
                 </div>
             </div>
         </nav>

@@ -1,8 +1,6 @@
 import React from "react";
+export const Profile   = (props) => {
 
-export class Profile extends React.Component {
-
-    render() {
          var userData = {
             "employee": [{
                 "name": "priti",
@@ -38,5 +36,5 @@ export class Profile extends React.Component {
                </tbody>
             </table>
         );
-    }
+    
 }

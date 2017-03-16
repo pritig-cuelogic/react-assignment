@@ -16,9 +16,7 @@ export class Register extends React.Component {
         this.setState(obj);
     }
     onSubmit() {
-        console.log(this.state.name);
-        console.log(this.state.email);
-        console.log(this.state.password);
+       this.props.router.push("login");
     }
     render() {
         return (

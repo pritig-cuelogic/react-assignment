@@ -1,7 +1,8 @@
 import React from "react";
-
+import {connect} from "react-redux";
 import { FormElement } from "../components/FormElement";
-export class Login extends React.Component {
+import { setUserName } from "../actions/loginActions";
+class Login extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -13,10 +14,21 @@ export class Login extends React.Component {
         var obj = {};
         obj[event.target.name] = event.target.value;
         this.setState(obj);
+        
     }
     onLogin() {
-        console.log(this.state.name);
-        console.log(this.state.password);
+        var user = {
+            name: "priti",
+            password: "123"
+        };
+        if(this.state.name == user.name) {
+            this.props.setUserName(this.state.name);
+            this.props.router.push("profile");
+        }
+        else{
+            return false;
+        }
+        
     }
     render() {
         
@@ -45,3 +57,13 @@ export class Login extends React.Component {
     }
 }
 
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setUserName: (name) => {
+            dispatch(setUserName(name));
+        }
+    };
+};
+
+export default connect(null, mapDispatchToProps)(Login);

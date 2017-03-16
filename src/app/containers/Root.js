@@ -1,13 +1,13 @@
 import React from "react";
-
+import {connect} from "react-redux";
 import { Header } from "../components/Header";
-export class Root extends React.Component {
+class Root extends React.Component {
     render() {
-        return (
+         return (
             <div className="container">
                 <div className="row">
                     <div className="col-xs-10 col-xs-offset-1">
-                        <Header />
+                        <Header username={this.props.user.name}/>
                     </div>
                 </div>
                 <div className="row">
@@ -19,3 +19,9 @@ export class Root extends React.Component {
         );
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        user: state.login
+    }
+};
+export default connect(mapStateToProps)(Root);
