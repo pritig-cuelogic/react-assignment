@@ -1,7 +1,10 @@
 import React from "react";
-export const Profile   = (props) => {
+import {connect} from "react-redux";
+import { LoadImages } from "../actions/profileActions";
+class Profile extends React.Component {
 
-         var userData = {
+        render() {
+        var userData = {
             "employee": [{
                 "name": "priti",
                 "email": "priti@gmail.com"
@@ -18,7 +21,16 @@ export const Profile   = (props) => {
             },
             ]
         };
+        var postNodes = "";
+        if(this.props.profiledata.data.length >0 ) {
+            postNodes = this.props.profiledata.data.map(function(item, i) {
+            return (
+               <img  key={i} src={item.media.m} />
+            );
+            });
+        }
         return (
+            <div>
             <table className="table table-striped">
               <thead>
                 <tr>
@@ -35,6 +47,26 @@ export const Profile   = (props) => {
                        )}
                </tbody>
             </table>
+            <button type="button" onClick={this.props.LoadImages}>Load Images</button>
+            <div>
+               {postNodes}
+            </div>
+            </div>
+       
         );
-    
+    }
 }
+const mapStateToProps = (state) => {
+    return {
+        profiledata: state.profile
+    }
+};
+const mapDispatchToProps = (dispatch) => {
+    return {
+        LoadImages: () => {
+            dispatch(LoadImages());
+        }
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);

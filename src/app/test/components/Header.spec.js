@@ -31,6 +31,6 @@ describe('Header', () => {
             shallow(
                  <Header />
             ).find('div').length
-        ).equal(2)
+        ).equal(3)
     });
 });

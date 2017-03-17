@@ -1,7 +1,7 @@
 import React from "react";
 import {expect} from "chai";
 import {shallow} from "enzyme";
-import  {Dashboard} from "../../containers/Dashboard";
+import  {Dashboard} from "../../components/Dashboard";
 
 describe('Dashboard', () => {
     

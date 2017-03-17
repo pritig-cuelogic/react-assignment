@@ -5,7 +5,7 @@ import {Provider} from "react-redux";
 
 import { Dashboard } from "./components/Dashboard";
 import Login from "./containers/Login";
-import { Profile } from "./components/Profile";
+import  Profile  from "./containers/Profile";
 import { Register } from "./containers/Register";
 import Root from "./containers/Root";
 import store from "./store";
