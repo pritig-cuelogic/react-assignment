@@ -9,7 +9,7 @@ export function LoadImages() {
         format: "json"       
         })
         .then(res => {
-            console.log(res);
+           
          dispatch({
              type: DATA_RECEIVE,
              payload: res.items

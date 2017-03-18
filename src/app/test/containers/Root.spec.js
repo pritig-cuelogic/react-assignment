@@ -1,10 +1,10 @@
 import React from "react";
 import {expect} from "chai";
 import {shallow, mount} from "enzyme";
-import  {Root} from "../../containers/Root";
+import  Root from "../../containers/Root";
 import  {Header} from "../../components/Header";
-import {Profile} from "../../containers/Profile";
-import {Dashboard} from "../../containers/Dashboard";
+import Profile from "../../containers/Profile";
+import {Dashboard} from "../../components/Dashboard";
 import jsdom from 'jsdom';
 
 const doc = jsdom.jsdom('<!doctype html><html><body></body></html>');
