@@ -3,28 +3,29 @@ import thunk from 'redux-thunk';
 import {expect} from "chai";
 import * as types from '../../constants/ActionTypes';
 import * as actions from "../../actions/profileActions";
+import {testdata} from './testdata';
 import nock from 'nock';
 
 const middlewares = [ thunk ];
 const mockStore = configureMockStore(middlewares);
-
 describe('async actions', () => {
     afterEach(() => {
         nock.cleanAll()
     })
 
     it('creates DATA_RECEIVE when fetching todos has been done', () => {
-        nock('http://api.flickr.com')
-        .get('/services/feeds/photos_public.gne?jsoncallback=?&tags=apples&tagmode=any&format=json')
-        .reply(200, { body: { todos: ['do something'] }})
-        const expectedActions = {
+        nock('http://jsonplaceholder.typicode.com')
+        .get('/albums/1/photos')
+        .reply(200, testdata
+            )
+        const expectedActions = [{
             type: types.DATA_RECEIVE,
-            payload: { todos: ['do something']  } 
-        }
-        const store = mockStore({ todos: [] })
+            payload: testdata
+        }]
+        const store = mockStore(testdata)
         return store.dispatch(actions.LoadImages())
         .then(() => { 
-            expect(store.getActions()).to.deep.equal(expectedActions)
+            expect( store.getActions()).to.deep.equal(expectedActions)
       })
     })
 })

@@ -1,6 +1,5 @@
 const profileReducer = (state = {data: ""}, action) => {
-	console.log(action.payload);
-    switch(action.type) {
+	switch(action.type) {
         case "DATA_RECEIVE":
         state = {
                 ...state,

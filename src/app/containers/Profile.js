@@ -1,6 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import { LoadImages } from "../actions/profileActions";
+import { stub } from 'sinon';
 class Profile extends React.Component {
 
         render() {
@@ -25,7 +26,7 @@ class Profile extends React.Component {
         if(this.props.profiledata.data.length >0 ) {
             postNodes = this.props.profiledata.data.map(function(item, i) {
             return (
-               <img  key={i} src={item.media.m} />
+               <img key={i} src={item.thumbnailUrl} />
             );
             });
         }
